@@ -36,4 +36,9 @@ public class Car extends Vehicle {
     public boolean hasRoofRack() { return roofRack; }
     public boolean hasAllWheelDrivetrain() { return allWheelDrive; }
     public boolean hasThirdRowSeat() { return thirdRow; }
+
+    @Override
+    public int compareTo(Vehicle o) {
+        return 0;
+    }
 }

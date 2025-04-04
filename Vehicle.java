@@ -1,7 +1,6 @@
 
 
-public abstract class Vehicle {
-
+public abstract class Vehicle implements Comparable<Vehicle> {
     private String make;
     private String model;
     private int year;    // years
