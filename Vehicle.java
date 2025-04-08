@@ -1,13 +1,13 @@
+import java.io.Serializable;
 
-
-public abstract class Vehicle implements Comparable<Vehicle> {
-    private String make;
-    private String model;
-    private int year;    // years
-    private int VIN;
-    private Gearbox gearbox;
+public abstract class Vehicle implements Serializable, Comparable<Vehicle> {
+    private final String make;
+    private final String model;
+    private final int year;    // years
+    private final int VIN;
+    private final Gearbox gearbox;
     private Colour colour;
-    private Body body;
+    private final Body body;
 
     public Vehicle(String make, String model, int year, int VIN, Gearbox gearbox, Colour colour, Body body) {
         this.make = make;
@@ -26,32 +26,16 @@ public abstract class Vehicle implements Comparable<Vehicle> {
         return make;
     }
 
-    public void setMake(String make) {
-        this.make = make;
-    }
-
     public String getModel() {
         return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
     }
 
     public int getYear() {
         return year;
     }
 
-    public void setYear(int year) {
-        this.year = year;
-    }
-
     public int getVIN() {
         return VIN;
-    }
-
-    public void setVIN(int VIN) {
-        this.VIN = VIN;
     }
 
     public Body getBodyType() { return body; }
