@@ -34,12 +34,10 @@ public class Main {
     }
 
     @Menu(command = "C", description = "Create vehicle", id = 0,
-            subMenuIDs = {1, 2})
+            subMenuIDs = {1, 2, 9, 10})
     @Menu(command = "C", description = "Create a Car", id = 1)
     public void createC() {
 
-        //public static void main(String[] args) {
-        //Scanner scanner = new Scanner(System.in);
 
         //input for car
         String carMake = Reader.readLine("Enter Car Make:");
@@ -71,6 +69,7 @@ public class Main {
             if (carBody == Body.ESTATE) {
                 tr = Reader.readBoolean("Does it have third row seats?"); // Estates only
             }
+
         Car car = new Car(carMake, carModel, carYear, carVIN, carMileage, gearbox, colour, carBody, sn, ps, tb, rr, aw, tr);
 
         vehicles.add(car);
@@ -178,5 +177,83 @@ public class Main {
             System.out.println("Vehicle not deleted");
         }
     }
+
+
+
+    // -------------- additional feature -----------------
+
+    @Menu(command = "V", description = "Create a Van", id = 9)
+    public void createV() {
+
+
+        //input for van
+        String vanMake = Reader.readLine("Enter Van Make:");
+        String vanModel = Reader.readLine("Enter Van Model:", 1, 10);
+        int vanYear = Reader.readInt("Enter Van year:", 2000, 2025);
+        int vanVIN;
+        do {
+            vanVIN = Reader.readInt("Enter Van VIN:"); //must be unique
+            if (!newVIN(vanVIN)) {
+                System.out.println("Sorry, VIN already used - please enter a unique VIN:");
+            }
+        } while (!newVIN(vanVIN));
+        int vanMileage = Reader.readInt("Enter van mileage:");
+        Gearbox gearbox = Reader.readEnum("Select gearbox type:", Gearbox.class);
+        Colour colour = Reader.readEnum("Select colour:", Colour.class);
+        int vanCap = Reader.readInt("Enter loading capacity (in cubic metres");
+        Wheelbase wheelbase = Reader.readEnum("Select Wheelbase:", Wheelbase.class);
+        boolean sn = Reader.readBoolean("Does it have a sat nav?");
+        boolean ps = Reader.readBoolean("Does it have parking sensors?");
+        boolean tb = Reader.readBoolean("Does it have a tow bar?");
+        boolean rr = Reader.readBoolean("Does it have a roof rack?");
+
+
+        Van van = new Van(vanMake, vanModel, vanYear, vanVIN, vanMileage, gearbox, colour, vanCap, wheelbase, sn, ps, tb, rr);
+
+        vehicles.add(van);
+        System.out.println("Van created");
+    }
+
+    // -----------------------------------------
+
+
+    @Menu(command = "B", description = "Create a Bus", id = 10)
+    public void createB() {
+
+
+        //input for bus
+        String busMake = Reader.readLine("Enter Bus Make:");
+        String busModel = Reader.readLine("Enter Bus Model:", 1, 10);
+        int busYear = Reader.readInt("Enter Bus year:", 2000, 2025);
+        int busVIN;
+        do {
+            busVIN = Reader.readInt("Enter Bus VIN:"); //must be unique
+            if (!newVIN(busVIN)) {
+                System.out.println("Sorry, VIN already used - please enter a unique VIN:");
+            }
+        } while (!newVIN(busVIN));
+        int busMileage = Reader.readInt("Enter bus mileage:");
+        Colour colour = Reader.readEnum("Select colour:", Colour.class);
+        Bustype busType = Reader.readEnum("Select bus type:", Bustype.class);
+        int busCap;
+            do {
+                busCap = Reader.readInt("Enter seating capacity:");
+                if (busCap > busType.getMaxCapacity()) {
+                    System.out.println("Seating capacity too high for a " + busType + ". Please enter seating capacity below the max of: " + busType.getMaxCapacity());
+                }
+            } while (busCap > busType.getMaxCapacity());
+        boolean sn = Reader.readBoolean("Does it have a sat nav?");
+        boolean ps = Reader.readBoolean("Does it have parking sensors?");
+        boolean ft = Reader.readBoolean("Fuel tank over 200 Litres?");
+
+
+        Bus bus = new Bus(busMake, busModel, busYear, busVIN, busMileage, colour, busCap, busType, sn, ps, ft);
+
+        vehicles.add(bus);
+        System.out.println("Bus created");
+    }
+
+    //---------------------------------
+
 }
 
