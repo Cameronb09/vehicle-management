@@ -9,6 +9,13 @@ public class Car extends Vehicle {
 
     public Car(String make, String model, int year, int VIN, int mileage, Gearbox gearbox, Colour colour, Body body, boolean sn, boolean ps, boolean tb, boolean rr, boolean aw, boolean tr) {
         super(make, model, year, VIN, mileage, gearbox, colour, body);
+            this.satNav = sn;
+            this.parkingSensor = ps;
+            this.towBar = tb;
+            this.roofRack = rr;
+            this.allWheelDrive = aw;
+            this.thirdRow = tr;
+
 
     }
 // add extras
@@ -41,4 +48,17 @@ public class Car extends Vehicle {
     public int compareTo(Vehicle o) {
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + '\n' +
+                "Sat nav?: " + satNav + '\n' +
+                "Parking sensors?: " + parkingSensor + '\n' +
+                "Tow bar?: " + towBar + '\n' +
+                "Roof rack?: " + roofRack + '\n' +
+                "All wheel drive?: " + allWheelDrive + '\n' +
+                "Third row seats?: " + thirdRow;
+
+    }
+
 }

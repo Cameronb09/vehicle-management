@@ -3,7 +3,7 @@ import java.io.Serializable;
 public abstract class Vehicle implements Serializable, Comparable<Vehicle> {
     private final String make;
     private final String model;
-    private final int year;    // years
+    private final int year;
     private final int VIN;
     private int mileage;
     private final Gearbox gearbox;
@@ -57,6 +57,20 @@ public abstract class Vehicle implements Serializable, Comparable<Vehicle> {
 
 
     public void addOption(String satNav) {
+    }
+
+    @Override
+    public String toString() {
+        return '\n' + "Vehicle\t" +
+        "Make: " + make + '\n' +
+                "Model: " + model + '\n' +
+                "Year: " + year + '\n' +
+                "VIN: " + VIN + '\n' +
+                "Mileage: " + mileage + '\n' +
+                "Gearbox: " + gearbox + '\n' +
+                "Colour: " + colour + '\n' +
+                "Body: " + body ;
+
     }
 
     @Override
