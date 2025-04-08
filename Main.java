@@ -63,11 +63,15 @@ public class Main {
         boolean ps = Reader.readBoolean("Does it have parking sensors?");
         boolean tb = Reader.readBoolean("Does it have a tow bar?");
         boolean rr = Reader.readBoolean("Does it have a roof rack?");
-        boolean aw = Reader.readBoolean("Does it have all wheel drive?"); //SUV only
-        boolean tr = Reader.readBoolean("Does it have third row seats?"); // Estates only
-
+        boolean aw = false;
+            if (carBody == Body.SUV) {
+                aw = Reader.readBoolean("Does it have all wheel drive?"); //SUV only
+            }
+        boolean tr = false;
+            if (carBody == Body.ESTATE) {
+                tr = Reader.readBoolean("Does it have third row seats?"); // Estates only
+            }
         Car car = new Car(carMake, carModel, carYear, carVIN, carMileage, gearbox, colour, carBody, sn, ps, tb, rr, aw, tr);
-
 
         vehicles.add(car);
         System.out.println("Car created");
