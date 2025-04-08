@@ -7,8 +7,8 @@ public class Car extends Vehicle {
     private boolean allWheelDrive;
     private boolean thirdRow;
 
-    public Car(String make, String model, int year, int VIN, Gearbox gearbox, Colour colour, Body body) {
-        super(make, model, year, VIN, gearbox, colour, body);
+    public Car(String make, String model, int year, int VIN, int mileage, Gearbox gearbox, Colour colour, Body body, boolean sn, boolean ps, boolean tb, boolean rr, boolean aw, boolean tr) {
+        super(make, model, year, VIN, mileage, gearbox, colour, body);
 
     }
 // add extras

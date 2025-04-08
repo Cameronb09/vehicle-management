@@ -5,15 +5,17 @@ public abstract class Vehicle implements Serializable, Comparable<Vehicle> {
     private final String model;
     private final int year;    // years
     private final int VIN;
+    private int mileage;
     private final Gearbox gearbox;
     private Colour colour;
     private final Body body;
 
-    public Vehicle(String make, String model, int year, int VIN, Gearbox gearbox, Colour colour, Body body) {
+    public Vehicle(String make, String model, int year, int VIN, int mileage, Gearbox gearbox, Colour colour, Body body) {
         this.make = make;
         this.model = model;
         this.year = year;
         this.VIN = VIN;
+        this.mileage = mileage;
         this.gearbox = gearbox;
         this.colour = colour;
         this.body = body;
@@ -37,6 +39,12 @@ public abstract class Vehicle implements Serializable, Comparable<Vehicle> {
     public int getVIN() {
         return VIN;
     }
+
+    public int getMileage() {
+        return mileage;
+    }
+
+    public void setMileage(int mileage) {this.mileage = mileage;}
 
     public Body getBodyType() { return body; }
 

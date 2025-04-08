@@ -36,6 +36,7 @@ public class Main {
         String carModel = Reader.readLine("Enter Car Model:", 1, 10);
         int carYear = Reader.readInt("Enter Car year:", 2000, 2025);
         int carVIN = Reader.readInt("Enter Car VIN:"); //must be unique
+        int carMileage = Reader.readInt("Enter car mileage:");
         Gearbox gearbox = Reader.readEnum("Select gearbox type:", Gearbox.class);
         System.out.println("You selected: ");
         Colour colour = Reader.readEnum("Select colour:", Colour.class);
@@ -49,7 +50,7 @@ public class Main {
         boolean aw = Reader.readBoolean("Does it have all wheel drive?"); //SUV only
         boolean tr = Reader.readBoolean("Does it have third row seats?"); // Estates only
 
-        Car car = new Car(carMake, carModel, carYear, carVIN, gearbox, colour, carBody, sn, ps, tb, rr, aw, tr);
+        Car car = new Car(carMake, carModel, carYear, carVIN, carMileage, gearbox, colour, carBody, sn, ps, tb, rr, aw, tr);
 
 
         vehicles.add(car);
@@ -64,12 +65,13 @@ public class Main {
         String bikeModel = Reader.readLine("Enter motorbike model: ");
         int bikeYear = Reader.readInt("Enter motorbike year: ", 2000, 2025);
         int bikeVIN = Reader.readInt("Enter motorbike vin: "); //must be unique
+        int bikeMileage = Reader.readInt("Enter motorbike mileage:");
         Gearbox bikeGearbox = Reader.readEnum("Select gearbox type: ", Gearbox.class);
         System.out.println("You selected " + bikeGearbox);
         Colour bikeColour = Reader.readEnum("Select colour:", Colour.class);
         System.out.println("You selected " + bikeColour);
         boolean lb = Reader.readBoolean("Does it have a luggage box?");
-        Motorbike motorbike = new Motorbike(bikeMake, bikeModel, bikeYear, bikeVIN, bikeGearbox, bikeColour, lb);
+        Motorbike motorbike = new Motorbike(bikeMake, bikeModel, bikeYear, bikeVIN, bikeMileage, bikeGearbox, bikeColour, lb);
 
         vehicles.add(motorbike);
         System.out.println("Motorbike created");
@@ -115,7 +117,10 @@ public class Main {
             vehicle.setColour(Reader.readEnum("Colour: ", Colour.class));
             updated = true;
         }
-
+        if (Reader.readBoolean("Update mileage?")) {
+            vehicle.setMileage(Reader.readInt("Mileage:"));
+            updated = true;
+        }
 
         if (vehicle instanceof Motorbike) {
             Motorbike mb = (Motorbike) vehicle;
