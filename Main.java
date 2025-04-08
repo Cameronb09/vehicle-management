@@ -23,6 +23,16 @@ public class Main {
         Application.start(Main.class);
     }
 
+    // check vin
+    public boolean newVIN(int vin) {
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getVIN() == vin) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     @Menu(command = "C", description = "Create vehicle", id = 0,
             subMenuIDs = {1, 2})
     @Menu(command = "C", description = "Create a Car", id = 1)
@@ -35,7 +45,13 @@ public class Main {
         String carMake = Reader.readLine("Enter Car Make:");
         String carModel = Reader.readLine("Enter Car Model:", 1, 10);
         int carYear = Reader.readInt("Enter Car year:", 2000, 2025);
-        int carVIN = Reader.readInt("Enter Car VIN:"); //must be unique
+        int carVIN;
+            do {
+                carVIN = Reader.readInt("Enter Car VIN:"); //must be unique
+                if (!newVIN(carVIN)) {
+                    System.out.println("Sorry, VIN already used - please enter a unique VIN:");
+                }
+            } while (!newVIN(carVIN));
         int carMileage = Reader.readInt("Enter car mileage:");
         Gearbox gearbox = Reader.readEnum("Select gearbox type:", Gearbox.class);
         System.out.println("You selected: ");
@@ -64,7 +80,13 @@ public class Main {
         String bikeMake = Reader.readLine("Enter motorbike make: ");
         String bikeModel = Reader.readLine("Enter motorbike model: ");
         int bikeYear = Reader.readInt("Enter motorbike year: ", 2000, 2025);
-        int bikeVIN = Reader.readInt("Enter motorbike vin: "); //must be unique
+        int bikeVIN;
+            do {
+                bikeVIN = Reader.readInt("Enter motorbike vin: "); //must be unique
+                if(!newVIN(bikeVIN)) {
+                    System.out.println("Sorry, VIN already used - please enter a unique VIN:");
+                }
+            } while (!newVIN(bikeVIN));
         int bikeMileage = Reader.readInt("Enter motorbike mileage:");
         Gearbox bikeGearbox = Reader.readEnum("Select gearbox type: ", Gearbox.class);
         System.out.println("You selected " + bikeGearbox);

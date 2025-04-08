@@ -58,4 +58,9 @@ public abstract class Vehicle implements Serializable, Comparable<Vehicle> {
 
     public void addOption(String satNav) {
     }
+
+    @Override
+    public int compareTo(Vehicle other) {
+        return Integer.compare(this.VIN, other.VIN);
+    }
 }
