@@ -1,4 +1,3 @@
-
 import devtools.io.Data;
 import devtools.ui.Application;
 import devtools.ui.Menu;
@@ -14,7 +13,6 @@ public class Main {
 
     @Data
     public List<Vehicle> vehicles = new ArrayList<>();
-
 
     @Data
     public Sequence seq = new Sequence(1, 1_000_000, "C");
@@ -33,11 +31,13 @@ public class Main {
         return true;
     }
 
+    // ----- menu -----
+
+    // ----- car -----
     @Menu(command = "C", description = "Create vehicle", id = 0,
             subMenuIDs = {1, 2, 9, 10})
     @Menu(command = "C", description = "Create a Car", id = 1)
     public void createC() {
-
 
         //input for car
         String carMake = Reader.readLine("Enter Car Make:");
@@ -52,9 +52,9 @@ public class Main {
             } while (!newVIN(carVIN));
         int carMileage = Reader.readInt("Enter car mileage:");
         Gearbox gearbox = Reader.readEnum("Select gearbox type:", Gearbox.class);
-        System.out.println("You selected: ");
+        System.out.println("You selected: " + gearbox);
         Colour colour = Reader.readEnum("Select colour:", Colour.class);
-        System.out.println("You selected ");
+        System.out.println("You selected " + colour);
         Body carBody = Reader.readEnum("Select body type: ", Body.class);
         System.out.println("You selected: " + carBody);
         boolean sn = Reader.readBoolean("Does it have a sat nav?");
@@ -76,6 +76,8 @@ public class Main {
         System.out.println("Car created");
     }
 
+    // ----- motorbike -----
+
     @Menu(command = "M", description = "Create Motorbike", id = 2)
     public void createM() {
         //input for motorbike
@@ -96,12 +98,14 @@ public class Main {
         Colour bikeColour = Reader.readEnum("Select colour:", Colour.class);
         System.out.println("You selected " + bikeColour);
         boolean lb = Reader.readBoolean("Does it have a luggage box?");
+
         Motorbike motorbike = new Motorbike(bikeMake, bikeModel, bikeYear, bikeVIN, bikeMileage, bikeGearbox, bikeColour, lb);
 
         vehicles.add(motorbike);
         System.out.println("Motorbike created");
-
     }
+
+    // ----- list -----
 
     @Menu(command = "L", description = "View a list of all cars and motorbikes", id = 3)
     public void listVehicles() {
@@ -111,6 +115,7 @@ public class Main {
         }
     }
 
+    // ----- search -----
 
     private Vehicle search() {
         String key = Reader.readLine("Enter details to search:");
@@ -129,6 +134,8 @@ public class Main {
         }
     }
 
+    // ----- update -----
+
     @Menu(command = "U0", description = "Update", id = 8, subMenuIDs = {5, 7})
     @Menu(command = "U", description = "Update vehicle details", id = 5)
     public void updateContact() {
@@ -137,11 +144,13 @@ public class Main {
             System.out.println("No vehicle was found!");
             return;
         }
+
         boolean updated = false;
         if (Reader.readBoolean("Update colour? ")) {
             vehicle.setColour(Reader.readEnum("Colour: ", Colour.class));
             updated = true;
         }
+
         if (Reader.readBoolean("Update mileage?")) {
             vehicle.setMileage(Reader.readInt("Mileage:"));
             updated = true;
@@ -154,12 +163,15 @@ public class Main {
                 updated = true;
             }
         }
+
     if (updated) {
         System.out.println("Vehicle successfully updated");
     } else {
         System.out.println("No changes have been made");
     }
     }
+
+    // ----- delete -----
 
     @Menu(command = "D", description = "Delete a vehicle", id = 6)
     public void deleteVehicle() {
@@ -178,14 +190,10 @@ public class Main {
         }
     }
 
-
-
     // -------------- additional feature -----------------
 
     @Menu(command = "V", description = "Create a Van", id = 9)
     public void createV() {
-
-
         //input for van
         String vanMake = Reader.readLine("Enter Van Make:");
         String vanModel = Reader.readLine("Enter Van Model:", 1, 10);
@@ -207,19 +215,16 @@ public class Main {
         boolean tb = Reader.readBoolean("Does it have a tow bar?");
         boolean rr = Reader.readBoolean("Does it have a roof rack?");
 
-
         Van van = new Van(vanMake, vanModel, vanYear, vanVIN, vanMileage, gearbox, colour, vanCap, wheelbase, sn, ps, tb, rr);
 
         vehicles.add(van);
         System.out.println("Van created");
     }
 
-    // -----------------------------------------
-
+    // ----- bus -----
 
     @Menu(command = "B", description = "Create a Bus", id = 10)
     public void createB() {
-
 
         //input for bus
         String busMake = Reader.readLine("Enter Bus Make:");
@@ -246,14 +251,10 @@ public class Main {
         boolean ps = Reader.readBoolean("Does it have parking sensors?");
         boolean ft = Reader.readBoolean("Fuel tank over 200 Litres?");
 
-
         Bus bus = new Bus(busMake, busModel, busYear, busVIN, busMileage, colour, busCap, busType, sn, ps, ft);
 
         vehicles.add(bus);
         System.out.println("Bus created");
     }
-
-    //---------------------------------
-
 }
 

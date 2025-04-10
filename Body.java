@@ -1,3 +1,4 @@
-
-public enum Body {SALOON, ESTATE, HATCHBACK, SUV
+public enum Body {
+    SALOON, ESTATE, HATCHBACK, SUV
 }
+//cars only

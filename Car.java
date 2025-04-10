@@ -1,4 +1,3 @@
-
 public class Car extends Vehicle {
     private boolean satNav;
     private boolean parkingSensor;
@@ -15,25 +14,6 @@ public class Car extends Vehicle {
             this.roofRack = rr;
             this.allWheelDrive = aw;
             this.thirdRow = tr;
-
-
-    }
-// add extras
-    public void add(String option){
-        switch (option.toLowerCase()) {
-            case "sat nav": this.satNav = true; break;
-            case "parking sensors": this.parkingSensor = true; break;
-            case "tow bar": this.towBar = true; break;
-            case "roof rack": this.roofRack = true; break;
-            case "all wheel drivetrain":
-                if (getBodyType() == Body.SUV) this.allWheelDrive = true;
-                break;
-            case "third row seat":
-                if (getBodyType() == Body.ESTATE) this.thirdRow = true;
-                break;
-            default:
-                System.out.println("Option not available for vehicle type");
-        }
     }
 
 // getters
@@ -45,20 +25,14 @@ public class Car extends Vehicle {
     public boolean hasThirdRowSeat() { return thirdRow; }
 
     @Override
-    public int compareTo(Vehicle o) {
-        return 0;
-    }
-
-    @Override
     public String toString() {
         return super.toString() + '\n' +
-                "Sat nav?: " + satNav + '\n' +
-                "Parking sensors?: " + parkingSensor + '\n' +
-                "Tow bar?: " + towBar + '\n' +
-                "Roof rack?: " + roofRack + '\n' +
-                "All wheel drive?: " + allWheelDrive + '\n' +
-                "Third row seats?: " + thirdRow;
-
+        "Sat nav?: " + satNav + '\n' +
+        "Parking sensors?: " + parkingSensor + '\n' +
+        "Tow bar?: " + towBar + '\n' +
+        "Roof rack?: " + roofRack + '\n' +
+        "All wheel drive?: " + allWheelDrive + '\n' +
+         "Third row seats?: " + thirdRow;
     }
 
 }

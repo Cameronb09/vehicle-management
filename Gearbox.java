@@ -1,4 +1,3 @@
-
-
-public enum Gearbox {MANUAL, AUTO
+public enum Gearbox {
+    MANUAL, AUTO
 }

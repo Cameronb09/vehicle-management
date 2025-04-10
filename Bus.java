@@ -1,4 +1,3 @@
-
 public class Bus extends Vehicle {
     private boolean satNav;
     private boolean parkingSensor;
@@ -12,42 +11,19 @@ public class Bus extends Vehicle {
         this.parkingSensor = ps;
         this.busType = busType;
         this.fueltank = ft;
-
-
-    }
-    // add extras
-    public void add(String option) {
-        switch (option.toLowerCase()) {
-            case "sat nav":
-                this.satNav = true;
-                break;
-            case "parking sensors":
-                this.parkingSensor = true;
-                break;
-
-        }
     }
 
     // getters
     public boolean hasSatNav() { return satNav; }
     public boolean hasParkingSensor() { return parkingSensor; }
 
-
-    @Override
-    public int compareTo(Vehicle o) {
-        return 0;
-    }
-
     @Override
     public String toString() {
         return super.toString() + '\n' +
-
-                "Sat nav?: " + satNav + '\n' +
-                "Seating Capacity: " + busCap + '\n' +
-                "Type: " + busType + '\n' +
-                "Parking sensors?: " + parkingSensor + '\n' +
-                "Fuel tank over 200 Litres?: " + fueltank;
-
+        "Sat nav?: " + satNav + '\n' +
+        "Seating Capacity: " + busCap + '\n' +
+        "Type: " + busType + '\n' +
+        "Parking sensors?: " + parkingSensor + '\n' +
+        "Fuel tank over 200 Litres?: " + fueltank;
     }
-
 }

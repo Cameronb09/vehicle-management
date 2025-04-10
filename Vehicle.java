@@ -19,7 +19,6 @@ public abstract class Vehicle implements Serializable, Comparable<Vehicle> {
         this.gearbox = gearbox;
         this.colour = colour;
         this.body = body;
-
     }
 
 //getters and setters
@@ -50,11 +49,9 @@ public abstract class Vehicle implements Serializable, Comparable<Vehicle> {
 
     public void setColour(Colour colour) {this.colour = colour;}
 
-
     public Colour getColour() { return colour; }
 
     public Gearbox getGearbox() { return gearbox;}
-
 
     public void addOption(String satNav) {
     }
@@ -63,14 +60,13 @@ public abstract class Vehicle implements Serializable, Comparable<Vehicle> {
     public String toString() {
         return '\n' + "Vehicle\t" +
         "Make: " + make + '\n' +
-                "Model: " + model + '\n' +
-                "Year: " + year + '\n' +
-                "VIN: " + VIN + '\n' +
-                "Mileage: " + mileage + '\n' +
-                "Gearbox: " + gearbox + '\n' +
-                "Colour: " + colour + '\n' +
-                "Body: " + body ;
-
+        "Model: " + model + '\n' +
+        "Year: " + year + '\n' +
+        "VIN: " + VIN + '\n' +
+        "Mileage: " + mileage + '\n' +
+        "Gearbox: " + gearbox + '\n' +
+        "Colour: " + colour + '\n' +
+        "Body: " + body;
     }
 
     @Override

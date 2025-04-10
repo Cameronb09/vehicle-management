@@ -1,4 +1,3 @@
-
 public class Motorbike extends Vehicle {
 
     public boolean luggageBox;
@@ -15,13 +14,8 @@ public void setLuggageBox(boolean luggageBox){
 public boolean hasLuggageBox() {return luggageBox;}
 
     @Override
-    public int compareTo(Vehicle o) {
-        return 0;
-    }
-
-    @Override
     public String toString() {
         return super.toString() + '\n' +
-                "Luggage box?: " + luggageBox + '\n';
+        "Luggage box?: " + luggageBox + '\n';
     }
 }

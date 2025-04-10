@@ -1,4 +1,3 @@
-
 public class Van extends Vehicle {
     private boolean satNav;
     private boolean parkingSensor;
@@ -15,10 +14,8 @@ public class Van extends Vehicle {
         this.roofRack = rr;
         this.capacity = vanCap;
         this.wheelbase = wheelbase;
-
-
-
     }
+
     // add extras
     public void add(String option) {
         switch (option.toLowerCase()) {
@@ -45,22 +42,14 @@ public class Van extends Vehicle {
     public int getCapacity() { return capacity;}
     public Wheelbase getWheelbase() { return wheelbase;}
 
-
-    @Override
-    public int compareTo(Vehicle o) {
-        return 0;
-    }
-
     @Override
     public String toString() {
         return super.toString() + '\n' +
-                "Sat nav?: " + satNav + '\n' +
-                "Parking sensors?: " + parkingSensor + '\n' +
-                "Tow bar?: " + towBar + '\n' +
-                "Roof rack?: " + roofRack + '\n' +
-                "Capacity (cubic M): " + capacity + '\n' +
-                "Wheelbase: " + wheelbase;
-
+        "Sat nav?: " + satNav + '\n' +
+        "Parking sensors?: " + parkingSensor + '\n' +
+        "Tow bar?: " + towBar + '\n' +
+        "Roof rack?: " + roofRack + '\n' +
+        "Capacity (cubic M): " + capacity + '\n' +
+        "Wheelbase: " + wheelbase;
     }
-
 }
