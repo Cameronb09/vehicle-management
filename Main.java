@@ -18,8 +18,30 @@ public class Main {
     public Sequence seq = new Sequence(1, 1_000_000, "C");
 
     public static void main(String[] args) {
+        Main main = new Main();
+        main.loadSampleData();
         Application.start(Main.class);
     }
+
+    private void loadSampleData() {
+        vehicles.add(new Car("Vauxhall", "Corsa", 2025, 12345, 200, Gearbox.AUTO, Colour.BLUE, Body.HATCHBACK, true, true, false, false, false, false));
+        vehicles.add(new Car("Ford", "Fiesta", 2021, 12347, 1000, Gearbox.MANUAL, Colour.RED, Body.HATCHBACK, true, true, true, false, false, false));
+
+        vehicles.add(new Car("BMW", "3 Series", 2010, 66778899, 80000, Gearbox.AUTO, Colour.BLUE, Body.SALOON, false, false, false, false, false, false));
+        vehicles.add(new Car("Audi", "A3", 2018, 6688770, 19000, Gearbox.MANUAL, Colour.BLACK, Body.SALOON, false, true, true, false, false, false));
+
+        vehicles.add(new Car("VW", "Golf", 2019, 3344557, 20000, Gearbox.AUTO, Colour.WHITE, Body.ESTATE, true, true, true, true, false, true));
+        vehicles.add(new Car("Vauxhall", "Astra", 2023, 3345567, 10000, Gearbox.MANUAL, Colour.BLACK, Body.ESTATE, true, true, true, false, false, true));
+
+        vehicles.add(new Car("Volvo", "XC40", 2021, 22446688, 8000, Gearbox.AUTO, Colour.BLACK, Body.SUV, true, true, true, true, true, false));
+        vehicles.add(new Car("Kia", "Sportage", 2020, 2425577, 10000, Gearbox.MANUAL, Colour.GREY, Body.SUV, true, true, false, false, true, false));
+
+        vehicles.add(new Motorbike("Honda", "MB1", 2023, 11223344, 500, Gearbox.MANUAL, Colour.YELLOW, true));
+        vehicles.add(new Motorbike("Yamaha", "MB2", 2020, 11335577, 1200, Gearbox.MANUAL, Colour.GREEN, false));
+
+        vehicles.add(new Bus("Mercedes", "Tourismo", 2018, 333333, 100000, Colour.BLACK, 50, Bustype.COACH, true, false, true));
+    }
+
 
     // check vin
     public boolean newVIN(int vin) {
