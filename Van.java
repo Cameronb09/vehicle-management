@@ -1,10 +1,10 @@
 public class Van extends Vehicle {
-    private boolean satNav;
-    private boolean parkingSensor;
-    private boolean towBar;
-    private boolean roofRack;
-    private int capacity;
-    private Wheelbase wheelbase;
+    private final boolean satNav;
+    private final boolean parkingSensor;
+    private final boolean towBar;
+    private final boolean roofRack;
+    private final int capacity;
+    private final Wheelbase wheelbase;
 
     public Van(String make, String model, int year, int VIN, int mileage, Gearbox gearbox, Colour colour, int vanCap, Wheelbase wheelbase, boolean sn, boolean ps, boolean tb, boolean rr) {
         super(make, model, year, VIN, mileage, gearbox, colour, null);
@@ -17,22 +17,8 @@ public class Van extends Vehicle {
     }
 
     // add extras
-    public void add(String option) {
-        switch (option.toLowerCase()) {
-            case "sat nav":
-                this.satNav = true;
-                break;
-            case "parking sensors":
-                this.parkingSensor = true;
-                break;
-            case "tow bar":
-                this.towBar = true;
-                break;
-            case "roof rack":
-                this.roofRack = true;
-                break;
-        }
-    }
+
+
 
     // getters
     public boolean hasSatNav() { return satNav; }

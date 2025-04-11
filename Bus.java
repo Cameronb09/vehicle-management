@@ -1,9 +1,9 @@
 public class Bus extends Vehicle {
-    private boolean satNav;
-    private boolean parkingSensor;
-    private Bustype busType;
+    private final boolean satNav;
+    private final boolean parkingSensor;
+    private final Bustype busType;
     private int busCap;
-    private boolean fueltank;
+    private final boolean fueltank;
 
     public Bus(String make, String model, int year, int VIN, int mileage, Colour colour, int busCap, Bustype busType, boolean sn, boolean ps, boolean ft) {
         super(make, model, year, VIN, mileage, Gearbox.AUTO, colour, null);

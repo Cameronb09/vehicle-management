@@ -146,7 +146,7 @@ public class Main {
         return vehicle;
     }
 
-    @Menu(command = "S", description = "Search for a car or motorbike", id = 4, global = true)
+    @Menu(command = "S", description = "Search for a car, motorbike, van or bus", id = 4, global = true)
     public void searchV() {
         Vehicle vehicle = search();
         if (vehicle != null) {
@@ -158,7 +158,7 @@ public class Main {
 
     // ----- update -----
 
-    @Menu(command = "U0", description = "Update", id = 8, subMenuIDs = {5, 7})
+    @Menu(command = "Up", description = "Update", id = 8, subMenuIDs = {5, 7})
     @Menu(command = "U", description = "Update vehicle details", id = 5)
     public void updateContact() {
         Vehicle vehicle = search();

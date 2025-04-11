@@ -1,10 +1,10 @@
 public class Car extends Vehicle {
-    private boolean satNav;
-    private boolean parkingSensor;
-    private boolean towBar;
-    private boolean roofRack;
-    private boolean allWheelDrive;
-    private boolean thirdRow;
+    private final boolean satNav;
+    private final boolean parkingSensor;
+    private final boolean towBar;
+    private final boolean roofRack;
+    private final boolean allWheelDrive;
+    private final boolean thirdRow;
 
     public Car(String make, String model, int year, int VIN, int mileage, Gearbox gearbox, Colour colour, Body body, boolean sn, boolean ps, boolean tb, boolean rr, boolean aw, boolean tr) {
         super(make, model, year, VIN, mileage, gearbox, colour, body);
